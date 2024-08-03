@@ -1,7 +1,9 @@
 .footer {
   padding: 12px 0;
   width: 100%;
-  background-image: url("../img/mountain-min.jpg");
+  // from public
+  background-image: url("/assets/img/footer-bg-public.jpg");
+  // from src - пока не нашел как использовать чтобы не падала сборка
 }
 
 .footer__text {

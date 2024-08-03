@@ -29,28 +29,27 @@ import pngQuant from 'imagemin-pngquant'
 import mozJpeg from 'imagemin-mozjpeg'
 
 const createWebp = () => {
-  const root = ''
   return gulp
     .src('public/**/*.{png,jpg}')
     .pipe(webp({ quality: 90 }))
-    .pipe(gulp.dest(`dist/${root}`))
+    .pipe(gulp.dest('dist/assets/img/'))
 }
 
-const cleanImages = () => del('dist/img/')
+const cleanImages = () => del('dist/assets/img/')
 const copyImages = () =>
   gulp
-    .src('public/img/**/*.{png,jpg,jpeg,webp}', { base: 'public' })
+    .src('public/assets/img/**/*.{png,jpg,jpeg,webp}', { base: 'public' })
     .pipe(gulp.dest('dist/'))
 
 const optimizeJpg = () =>
   gulp
-    .src('public/img/**/*.{jpg,jpeg}', { base: 'public' })
+    .src('public/assets/img/**/*.{jpg,jpeg}', { base: 'public' })
     .pipe(imagemin([mozJpeg({ quality: 55, progressive: true })]))
     .pipe(gulp.dest('dist/'))
 
 const optimizePng = () =>
   gulp
-    .src('public/img/**/*.png', { base: 'public' })
+    .src('public/assets/img/**/*.png', { base: 'public' })
     .pipe(
       imagemin([
         pngQuant({
@@ -61,13 +60,13 @@ const optimizePng = () =>
         })
       ])
     )
-    .pipe(gulp.dest('dist/'))
+    .pipe(gulp.dest('dist/assets/'))
 
 const createBuildWebp = () => {
   return gulp
-    .src('public/img/**/*.{png,jpg}')
+    .src('public/assets/img/**/*.{png,jpg}')
     .pipe(webp({ quality: 50 }))
-    .pipe(gulp.dest('dist/img/'))
+    .pipe(gulp.dest('dist/assets/img/'))
 }
 
 const optimizeImages = gulp.series(

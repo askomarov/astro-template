@@ -36,14 +36,16 @@ export default defineConfig({
         output: {
           entryFileNames: 'scripts-[hash].js',
           assetFileNames: (assetInfo) => {
-            let extType = assetInfo.name.split('.').at(1);
-            if (/png|jpe?g|svg|webp|avif|gif|tiff|bmp|ico/i.test(extType)) {
-              extType = 'img';
-            }
+            let extType = assetInfo.name.split('.').at(1)
             if (/css/.test(extType)) {
-              extType = 'css';
+              return 'assets/css/styles-[hash][extname]'
+            } else if (
+              /png|jpe?g|svg|webp|avif|gif|tiff|bmp|ico/i.test(extType)
+            ) {
+              return 'assets/img/[name]-[hash][extname]'
+            } else {
+              return 'assets/[name]-[hash][extname]'
             }
-            return `${extType}/[name]-[hash][extname]`;
           },
         },
       },
