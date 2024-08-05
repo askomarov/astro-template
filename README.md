@@ -120,7 +120,7 @@ import myImagePng from "@img/my-image-png.png";
 ## Картинки в стилях из public folder
 
 ```css
-background-image: url('../img/mountain-min.jpg');
+background-image: url('/img/mountain-min.jpg');
 ```
 
 # Lenis is a lightweight, robust, and performant smooth scroll library.
@@ -154,11 +154,10 @@ Lenis - имеет фунцкцию scrollTo(target), подробнее в до
 Пример, клик по якорным ссылкам, имортирую уже инициализоварнный класс lenis из index.js файла
 
 ```js
-import { lenis } from '../index'
-
 const anchorLinks = document.querySelectorAll('[data-link]')
-
-const ininAcnhorLinks = () => {
+// как вариант передать instance lenis в функцию при ее вызове
+// или эту фунцкию написать там где создается lenis и не передавать через параметр
+const ininAcnhorLinks = (lenis) => {
   if (anchorLinks) {
     anchorLinks.forEach((link) => {
       link.addEventListener('click', (evt) => {

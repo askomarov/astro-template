@@ -1,20 +1,18 @@
-// отдельный файл скриптов например для конкретной страницы
-import Swiper from "swiper";
-import { Pagination, Navigation } from "swiper/modules";
+import Swiper from 'swiper'
+import { Pagination, Navigation } from 'swiper/modules'
 
-console.log("hello specific file");
+const heroSection = document.querySelector('.hero')
+const servicesSliderEl = document.querySelector('.hero-swiper')
 
-const heroSection = document.querySelector(".hero");
-const servicesSliderEl = document.querySelector(".hero-swiper");
-
-export const initSlider = () =>{
+export const initSlider = () => {
+  let swiper
   if (heroSection && servicesSliderEl) {
     const sliderButtonNext = heroSection.querySelector(
-      ".swiper__button--next"
-    );
+      '.swiper__button--next'
+    )
     const sliderButtonPrev = heroSection.querySelector(
-      ".swiper__button--prev"
-    );
+      '.swiper__button--prev'
+    )
     const swiperOptions = {
       modules: [Pagination, Navigation],
       spaceBetween: 32,
@@ -23,17 +21,17 @@ export const initSlider = () =>{
       // grabCursor: true,
       centeredSlides: true,
       pagination: {
-        el: ".hero .swiper-pagination",
+        el: '.hero .swiper-pagination',
         clickable: true,
       },
       navigation: {
         nextEl: sliderButtonNext,
         prevEl: sliderButtonPrev,
       },
-    };
+    }
 
-      const swiper = new Swiper(".hero-swiper", swiperOptions);
-      return swiper;
+    swiper = new Swiper('.hero-swiper', swiperOptions)
   }
+  return swiper
 }
 
