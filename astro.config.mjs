@@ -28,6 +28,9 @@ export default defineConfig({
     })
   ],
   vite: {
+    css: {
+      devSourcemap: true,
+    },
     build: {
       minify: false,
       assetsInlineLimit: 0, // запрещает инлайн скриптов. по дефолту инлайнит скрипты в html
