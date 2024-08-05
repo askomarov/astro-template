@@ -12,6 +12,7 @@ export default defineConfig({
   publicDir: './public',
   build: {
     format: 'file', // вытаскивает вложенные страницы в корень src/pages/subpage/subpage.html => dist/subpage.html
+    // assets: 'assets',
     assetsPrefix: '.', // добавляет `.` в пути скриптов и стилей
     // inlineStylesheets: 'never', // запрещает инлайн стилей
   },
@@ -34,7 +35,7 @@ export default defineConfig({
     build: {
       minify: false,
       assetsInlineLimit: 0, // запрещает инлайн скриптов. по дефолту инлайнит скрипты в html
-      cssCodeSplit: true, // css в один файл
+      cssCodeSplit: false, // css в один файл
       rollupOptions: {
         output: {
           entryFileNames: 'scripts-[hash].js',
@@ -47,7 +48,7 @@ export default defineConfig({
               extType = 'css'
             }
             return `${extType}/[name]-[hash][extname]`
-          },
+          }
         },
       },
     },
