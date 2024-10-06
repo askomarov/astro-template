@@ -9,6 +9,8 @@ export default defineConfig({
   // site: 'https://htmlonelove.github.io',
   compressHTML: false,
   output: 'static',
+  base: '/',
+  root: './',
   publicDir: './public',
   build: {
     format: 'file', // вытаскивает вложенные страницы в корень src/pages/subpage/subpage.html => dist/subpage.html
