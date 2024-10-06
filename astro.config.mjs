@@ -40,7 +40,7 @@ export default defineConfig({
       cssCodeSplit: false, // css в один файл
       rollupOptions: {
         output: {
-          entryFileNames: 'scripts-[hash].js',
+          entryFileNames: 'scripts.js',
           assetFileNames: (assetInfo) => {
             let extType = assetInfo.name.split('.').at(1)
             if (/png|jpe?g|svg|webp|avif|gif|tiff|bmp|ico/i.test(extType)) {
@@ -49,7 +49,7 @@ export default defineConfig({
             if (/css/.test(extType)) {
               extType = 'css'
             }
-            return `${extType}/[name]-[hash][extname]`
+            return `${extType}/[name][extname]`
           }
         },
       },
