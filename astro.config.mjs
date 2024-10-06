@@ -12,7 +12,7 @@ export default defineConfig({
   publicDir: './public',
   build: {
     format: 'file', // вытаскивает вложенные страницы в корень src/pages/subpage/subpage.html => dist/subpage.html
-    // assets: 'assets',
+    assets: 'assets',
     assetsPrefix: '.', // добавляет `.` в пути скриптов и стилей
     // inlineStylesheets: 'never', // запрещает инлайн стилей
   },
@@ -38,17 +38,12 @@ export default defineConfig({
       cssCodeSplit: false, // css в один файл
       rollupOptions: {
         output: {
-          entryFileNames: 'scripts-[hash].js',
+          entryFileNames: 'scripts.js',
           assetFileNames: (assetInfo) => {
-            let extType = assetInfo.name.split('.').at(1)
-            if (/png|jpe?g|svg|webp|avif|gif|tiff|bmp|ico/i.test(extType)) {
-              extType = 'img'
-            }
-            if (/css/.test(extType)) {
-              extType = 'css'
-            }
-            return `${extType}/[name]-[hash][extname]`
-          }
+            return assetInfo.name === 'style.css'
+              ? `${assetInfo.name}` // задается имя и папка (корень) для css
+              : `assets/${assetInfo.name}` // задается имя и папка картинкам
+          },
         },
       },
     },
