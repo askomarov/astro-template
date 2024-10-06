@@ -6,6 +6,7 @@ import MainLayout from '@layouts/Main/Main'
 import { Picture } from 'astro:assets'
 import Button from '@components/Button/Button'
 import ModalPolicy from '@components/ModalPolicy/ModalPolicy'
+import TiltParent from '@components/TiltParent/TiltParent'
 ---
 
 <MainLayout title="Главная" description="Описание">
@@ -60,6 +61,31 @@ import ModalPolicy from '@components/ModalPolicy/ModalPolicy'
         modal="example"
       />
       <Button text="Mодалка фиксированная по высоте" modal="policy" />
+    </Container>
+  </section>
+  <section>
+    <Container>
+      <div class="list" style="columns: 300px;">
+        {
+          [1, 2, 3].map(() => (
+            <TiltParent>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+              quod, voluptates, quae, quos quidem quibusdam dolorum consequuntur
+              voluptatum nemo quia doloremque. Quisquam voluptates, quae, quos
+              quidem quibusdam dolorum consequuntur voluptatum nemo quia
+              doloremque.
+            </TiltParent>
+          ))
+        }
+        <TiltParent>
+          <img
+            src="./img/mountain-min.jpg"
+            width="320"
+            height="213"
+            alt="image"
+          />
+        </TiltParent>
+      </div>
     </Container>
   </section>
 
