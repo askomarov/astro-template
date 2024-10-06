@@ -6,11 +6,9 @@ import icon from 'astro-icon'
 // https://astro.build/config
 export default defineConfig({
   devToolbar: { enabled: false },
-  // site: 'https://htmlonelove.github.io',
+  site: 'https://askomarov.github.io',
   compressHTML: false,
   output: 'static',
-  base: '/',
-  root: './',
   publicDir: './public',
   build: {
     format: 'file', // вытаскивает вложенные страницы в корень src/pages/subpage/subpage.html => dist/subpage.html
@@ -40,7 +38,7 @@ export default defineConfig({
       cssCodeSplit: false, // css в один файл
       rollupOptions: {
         output: {
-          entryFileNames: 'scripts.js',
+          entryFileNames: 'scripts-[hash].js',
           assetFileNames: (assetInfo) => {
             let extType = assetInfo.name.split('.').at(1)
             if (/png|jpe?g|svg|webp|avif|gif|tiff|bmp|ico/i.test(extType)) {
@@ -49,7 +47,7 @@ export default defineConfig({
             if (/css/.test(extType)) {
               extType = 'css'
             }
-            return `${extType}/[name][extname]`
+            return `${extType}/[name]-[hash][extname]`
           }
         },
       },
