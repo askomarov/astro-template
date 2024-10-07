@@ -133,16 +133,16 @@
 
   &::-webkit-scrollbar-track {
     // background-color: transparent;
-    background-color: green;
+    background-color: #00ff00;
     border-radius: 6px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgba($color: red, $alpha: 0.6);
+    background-color: rgba($color: #ff0000, $alpha: 0.6);
     border-radius: 6px;
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background-color: red;
+    background-color: #ff0000;
   }
 }

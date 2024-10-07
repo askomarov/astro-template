@@ -7,10 +7,18 @@ import { Picture } from 'astro:assets'
 import Button from '@components/Button/Button'
 import ModalPolicy from '@components/ModalPolicy/ModalPolicy'
 import TiltParent from '@components/TiltParent/TiltParent'
+import ButtonFlair from '@components/ButtonFlair/ButtonFlair'
 ---
 
 <MainLayout title="Главная" description="Описание">
   <section class="hero">
+    ButtonFlair with decor animation<br>
+    <ButtonFlair>
+      funny button
+    </ButtonFlair>
+    <ButtonFlair>
+     button 💘
+    </ButtonFlair>
     <div class="hero__container container">
       <h2>Hello swiper</h2>
       <div class="swiper hero-swiper">
@@ -77,6 +85,15 @@ import TiltParent from '@components/TiltParent/TiltParent'
             </TiltParent>
           ))
         }
+
+        <TiltParent>
+          <img
+            src="https://picsum.photos/300/400"
+            width="300"
+            height="400"
+            alt="image"
+          />
+        </TiltParent>
         <TiltParent>
           <img
             src="./img/mountain-min.jpg"
