@@ -22,13 +22,13 @@ class TiltParent extends HTMLElement {
     super()
     const parent = this
     const content: HTMLElement = parent.querySelector('.tilt-parent___content')
-    // ROTATION_RANGE for the maximum rotation in degrees
-    const ROTATION_RANGE = 32.5
-    const HALF_ROTATION_RANGE = ROTATION_RANGE / 2
+    // MAX_ROTATION_DEGREES for the maximum rotation in degrees
+    const MAX_ROTATION_DEGREES = 45
+    const HALF_ROTATION_DEGREES = MAX_ROTATION_DEGREES / 2
 
     // LERP_FACTOR for smoother transitions its need to be between 0.1 and 1
     const LERP_FACTOR = 0.1
-    const rect = parent.getBoundingClientRect()
+
     let prevX = 0
     let prevY = 0
     let animationFrameId: number | null = null // Для отмены анимации
@@ -38,14 +38,15 @@ class TiltParent extends HTMLElement {
 
     this.handleMouseMove = (e: MouseEvent) => {
       if (!parent || !content) return
+      const rect = parent.getBoundingClientRect()
       const width = rect.width
       const height = rect.height
 
-      const mouseX = (e.clientX - rect.left) * ROTATION_RANGE
-      const mouseY = (e.clientY - rect.top) * ROTATION_RANGE
+      const mouseX = (e.clientX - rect.left) * MAX_ROTATION_DEGREES
+      const mouseY = (e.clientY - rect.top) * MAX_ROTATION_DEGREES
 
-      const rX = lerp(prevX, (mouseY / height - HALF_ROTATION_RANGE) * -1, LERP_FACTOR)
-      const rY = lerp(prevY, mouseX / width - HALF_ROTATION_RANGE, LERP_FACTOR)
+      const rX = lerp(prevX, (mouseY / height - HALF_ROTATION_DEGREES) * -1, LERP_FACTOR)
+      const rY = lerp(prevY, mouseX / width - HALF_ROTATION_DEGREES, LERP_FACTOR)
 
       // Update previous values for next frame
       prevX = rX
