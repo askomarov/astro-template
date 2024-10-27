@@ -1,10 +1,10 @@
 ---
 interface Props {
-  className?: string
-  mod?: 'big' | 'no-p'
+  className?: string;
+  mod?: 'big' | 'no-p';
 }
 
-const { mod, className } = Astro.props
+const { mod, className } = Astro.props;
 ---
 
 <div class:list={['container', className, { [`container--${mod}`]: mod }]}>

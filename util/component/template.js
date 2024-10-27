@@ -1,14 +1,14 @@
 export const astroTemplate = (componentName) =>
   `---
-import './${componentName}.scss'
+import './${componentName}.scss';
 
 interface Props {
 
 }
 
-const { } = Astro.props
+const { } = Astro.props;
 ---
 
-`
+`;
 
-export const scssTemplate = () => ''
+export const scssTemplate = () => '';

@@ -1,6 +1,6 @@
-import { defineConfig, squooshImageService } from 'astro/config'
-import viteSassGlob from 'vite-plugin-sass-glob-import'
-import icon from 'astro-icon'
+import { defineConfig, squooshImageService } from 'astro/config';
+import viteSassGlob from 'vite-plugin-sass-glob-import';
+import icon from 'astro-icon';
 
 
 // https://astro.build/config
@@ -34,21 +34,21 @@ export default defineConfig({
     },
     build: {
       minify: false,
-      assetsInlineLimit: 0, // запрещает инлайн скриптов. по дефолту инлайнит скрипты в html
-      cssCodeSplit: false, // css в один файл
-      rollupOptions: {
-        output: {
-          entryFileNames: 'scripts.js',
-          assetFileNames: (assetInfo) => {
-            return assetInfo.name === 'style.css'
-              ? `${assetInfo.name}` // задается имя и папка (корень) для css
-              : `assets/${assetInfo.name}` // задается имя и папка картинкам
-          },
-        },
-      },
+      // assetsInlineLimit: 0, // запрещает инлайн скриптов. по дефолту инлайнит скрипты в html
+      // cssCodeSplit: false, // css в один файл
+      // rollupOptions: {
+      //   output: {
+      //     entryFileNames: 'scripts.js',
+      //     assetFileNames: (assetInfo) => {
+      //       return assetInfo.name === 'style.css'
+      //         ? `${assetInfo.name}` // задается имя и папка (корень) для css
+      //         : `assets/${assetInfo.name}` // задается имя и папка картинкам
+      //     },
+      //   },
+      // },
     },
     plugins: [
       viteSassGlob()
     ],
   },
-})
+});

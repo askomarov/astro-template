@@ -30,7 +30,7 @@ module.exports = {
   ],
   rules: {
     'jsx-quotes': [2, 'prefer-double'],
-    'semi': ['error', 'never'],
+    'semi': ['error', 'always'],
     'quotes': ['error', 'single', { avoidEscape: true }],
     // ECMAScript 6
     // http://eslint.org/docs/rules/#ecmascript-6
@@ -219,4 +219,4 @@ module.exports = {
       }
     ]
   }
-}
+};

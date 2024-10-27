@@ -1,15 +1,15 @@
 ---
 interface Props {
-  name: string
-  type: 'jpg' | 'png' | 'jpeg'
-  alt: string
-  width: number
-  height: number
-  folder?: string
+  name: string;
+  type: 'jpg' | 'png' | 'jpeg';
+  alt: string;
+  width: number;
+  height: number;
+  folder?: string;
 }
 
-const { name, type, alt, width, height, folder = 'img' } = Astro.props
-const src = `./${folder}/${name}`
+const { name, type, alt, width, height, folder = 'img' } = Astro.props;
+const src = `./${folder}/${name}`;
 ---
 
 <picture>

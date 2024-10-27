@@ -1,24 +1,24 @@
 ---
-import Container from '@components/Container/Container'
-import Modal from '@components/Modal/Modal'
-import myImage from '@img/mountain.jpg'
-import MainLayout from '@layouts/Main/Main'
-import { Picture } from 'astro:assets'
-import Button from '@components/Button/Button'
-import ModalPolicy from '@components/ModalPolicy/ModalPolicy'
-import TiltParent from '@components/TiltParent/TiltParent'
-import ButtonFlair from '@components/ButtonFlair/ButtonFlair'
+import Container from '@components/Container/Container';
+import Modal from '@components/Modal/Modal';
+import myImage from '@img/mountain.jpg';
+import MainLayout from '@layouts/Main/Main';
+import { Picture } from 'astro:assets';
+import Button from '@components/Button/Button';
+import ModalPolicy from '@components/ModalPolicy/ModalPolicy';
+import TiltParent from '@components/TiltParent/TiltParent';
+import ButtonFlair from '@components/ButtonFlair/ButtonFlair';
+import AccordionSection from '@blocks/AccordionSection/AccordionSection';
 ---
 
 <MainLayout title="Главная" description="Описание">
+  <Container>
+    <AccordionSection />
+  </Container>
   <section class="hero">
-    ButtonFlair with decor animation<br>
-    <ButtonFlair>
-      funny button
-    </ButtonFlair>
-    <ButtonFlair>
-     button 💘
-    </ButtonFlair>
+    ButtonFlair with decor animation<br />
+    <ButtonFlair>funny button</ButtonFlair>
+    <ButtonFlair>button 💘</ButtonFlair>
     <div class="hero__container container">
       <h2>Hello swiper</h2>
       <div class="swiper hero-swiper">
@@ -26,7 +26,7 @@ import ButtonFlair from '@components/ButtonFlair/ButtonFlair'
           <div class="swiper-slide hero-slide">
             <picture>
               <img
-                src="./img/mountain-min.jpg"
+                src="./assets/mountain-min.jpg"
                 width="320"
                 height="213"
                 alt="image"
@@ -96,7 +96,7 @@ import ButtonFlair from '@components/ButtonFlair/ButtonFlair'
         </TiltParent>
         <TiltParent>
           <img
-            src="./img/mountain-min.jpg"
+            src="./assets/mountain-min.jpg"
             width="320"
             height="213"
             alt="image"

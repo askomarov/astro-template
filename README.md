@@ -133,43 +133,43 @@ js библиотека для плавной прокрутки
 Файл стилей лежит в папке 'src/styles/vendors/lenis.scss'
 
 ```js
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Lenis from 'lenis'
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Lenis from 'lenis';
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
-export const lenis = new Lenis()
+export const lenis = new Lenis();
 
-lenis.on('scroll', ScrollTrigger.update)
+lenis.on('scroll', ScrollTrigger.update);
 
 gsap.ticker.add((time) => {
-  lenis.raf(time * 1000)
-})
+  lenis.raf(time * 1000);
+});
 
-gsap.ticker.lagSmoothing(0)
+gsap.ticker.lagSmoothing(0);
 ```
 
 Lenis - имеет фунцкцию scrollTo(target), подробнее в доке.
 Пример, клик по якорным ссылкам, имортирую уже инициализоварнный класс lenis из index.js файла
 
 ```js
-const anchorLinks = document.querySelectorAll('[data-link]')
+const anchorLinks = document.querySelectorAll('[data-link]');
 // как вариант передать instance lenis в функцию при ее вызове
 // или эту фунцкию написать там где создается lenis и не передавать через параметр
 const ininAcnhorLinks = (lenis) => {
   if (anchorLinks) {
     anchorLinks.forEach((link) => {
       link.addEventListener('click', (evt) => {
-        evt.preventDefault()
-        const target = document.querySelector(`${link.getAttribute('href')}`)
-        if (!target) return
-        lenis.scrollTo(target)
-      })
-    })
+        evt.preventDefault();
+        const target = document.querySelector(`${link.getAttribute('href')}`);
+        if (!target) return;
+        lenis.scrollTo(target);
+      });
+    });
   }
-}
-export { ininAcnhorLinks }
+};
+export { ininAcnhorLinks };
 ```
 
 ### Баг с блокировкой скрола при использовании lenis
@@ -185,17 +185,17 @@ export { ininAcnhorLinks }
 не сработает, нужно блокировать сам lenis через js в те моменты где срабатывает блок скрола, например при открытии модального окна, добавив код ниже:
 
 ```js
-lenis.isScrolling = false
-lenis.isLocked = true
-lenis.isStopped = true
+lenis.isScrolling = false;
+lenis.isLocked = true;
+lenis.isStopped = true;
 ```
 
 и разблокировать при закрытии модалки:
 
 ```js
-lenis.isScrolling = false
-lenis.isLocked = false
-lenis.isStopped = false
+lenis.isScrolling = false;
+lenis.isLocked = false;
+lenis.isStopped = false;
 ```
 
 При блокировки скрола, если нужно сохранить скролл во вложенном элементе, например при открытии бургер меню, в меню должна быть вертикальная прокрутка на не высоких (коротких) экранах - для этого элемента с прокрутой необходимо добавить атрибут:

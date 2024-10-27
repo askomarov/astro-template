@@ -6,7 +6,8 @@
       "@components/*": ["src/components/*.astro"],
       "@layouts/*": ["src/layouts/*.astro"],
       "@ui/*": ["src/ui/*.astro"],
-      "@img/*": ["src/img/*"]
+      "@img/*": ["src/img/*"],
+      "@blocks/*": ["src/blocks/*.astro"],
     }
   }
 }

@@ -11,7 +11,7 @@ module.exports = {
   ],
   singleQuote: true,
   quoteProps: 'consistent',
-  semi: false,
+  semi: true,
   trailingComma: 'none',
   jsxSingleQuote: false,
   bracketSpacing: true,
